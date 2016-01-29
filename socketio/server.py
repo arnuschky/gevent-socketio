@@ -97,6 +97,8 @@ class SocketIOServer(WSGIServer):
         log_file = kwargs.pop('log_file', None)
         if log_file:
             kwargs['log'] = open(log_file, 'a')
+        else:
+            kwargs['log'] = None    # actively disable log
 
         super(SocketIOServer, self).__init__(*args, **kwargs)
 
